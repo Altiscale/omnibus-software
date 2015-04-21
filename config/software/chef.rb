@@ -79,7 +79,7 @@ build do
     block "Build Event Log Dll" do
       Dir.chdir software.project_dir do
         rake = windows_safe_path("#{install_dir}/embedded/bin/rake")
-        %x|#{rake} -rdevkit build_eventlog"| if File.exists? "#{software.project_dir}/ext/win32-eventlog"
+        `#{rake} -rdevkit build_eventlog"` if File.exists? "#{software.project_dir}/ext/win32-eventlog"
       end
     end
   else
