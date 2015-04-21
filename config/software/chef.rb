@@ -36,7 +36,7 @@ end
 
 dependency "openssl-customization"
 dependency "bundler"
-dependency "ohai"
+dependency "ohai-embedded"
 dependency "appbundler"
 
 build do
