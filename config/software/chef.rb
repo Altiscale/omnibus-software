@@ -36,20 +36,11 @@ end
 
 dependency "openssl-customization"
 dependency "bundler"
-dependency "ohai-embedded"
+dependency "ohai"
 dependency "appbundler"
 
 build do
   env = with_standard_compiler_flags(with_embedded_path)
-
-  block do
-    if File.exist?("#{project_dir}/chef")
-      # We are on Chef 10 and need to adjust the relative path. In Chef 10, the
-      # Chef Client and Chef Server were in the same repo (like Rails), but in
-      # Chef 11, the server has been moved to its own project.
-      software.relative_path('chef/chef')
-    end
-  end
 
   if windows?
     # Normally we would symlink the required unix tools.
